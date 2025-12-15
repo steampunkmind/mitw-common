@@ -1,0 +1,54 @@
+{
+	"waiting": 150,
+	"wondering": 500,
+	"governors": [
+		{
+			"name": "A",
+			"sensor": "A-1",
+			"error_threshold": 60,
+			"error_peak": 40,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 60,
+					"retain": 20,
+				}
+		},
+		{
+			"name": "B",
+			"sensor": "B-2",
+			"error_threshold": 60,
+			"error_peak": 40,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 60,
+					"retain": 20,
+				}
+		},
+		{
+			"name": "C",
+			"sensor": "C-3",
+			"error_threshold": 60,
+			"error_peak": 40,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 60,
+					"retain": 20,
+				}
+		},
+		{
+			"name": "D",
+			"sensor": "D-4",
+			"error_threshold": 60,
+			"error_peak": 40,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 60,
+					"retain": 20,
+				}
+		},
+	]
+}

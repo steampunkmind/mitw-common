@@ -1,0 +1,78 @@
+{
+	"waiting": 150,
+	"wondering": 500,
+	"governors": [
+		{
+			"name": "Mood",
+			"sensor": "Mood",
+			"error_threshold": 30,
+			"error_peak": 10,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 30,
+					"retain": 10,
+				}
+		},
+		{
+			"name": "Energy",
+			"sensor": "Energy",
+			"error_threshold": 30,
+			"error_peak": 10,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 30,
+					"retain": 10,
+				}
+		},
+		{
+			"name": "Stomach Liquid",
+			"sensor": "Stomach Liquid",
+			"error_threshold": 25,
+			"error_peak": 10,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 30,
+					"retain": 10,
+				}
+		},
+		{
+			"name": "Stomach Solid",
+			"sensor": "Stomach Solid",
+			"error_threshold": 25,
+			"error_peak": 10,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 30,
+					"retain": 10,
+				}
+		},
+		{
+			"name": "Bladder",
+			"sensor": "Bladder",
+			"error_threshold": 80,
+			"error_peak": 90,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 30,
+					"retain": 10,
+				}
+		},
+		{
+			"name": "Bowels",
+			"sensor": "Bowels",
+			"error_threshold": 80,
+			"error_peak": 90,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 30,
+					"retain": 10,
+				}
+		}
+	]
+}
