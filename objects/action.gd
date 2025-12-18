@@ -2,6 +2,7 @@ class_name Action extends RefCounted
 
 var _dict = {}
 var _influences: Array[Influence]
+var _name_width: float
 
 # Constructor
 func _init(name: String, visible: bool, influences: Array[Influence] = []):
@@ -35,3 +36,9 @@ func get_dict() -> Dictionary:
 	return result
 	
 	
+func get_name_width() -> float:
+	return _name_width
+
+
+func set_name_width(value: float) -> void:
+	_name_width = value
