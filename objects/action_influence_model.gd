@@ -90,6 +90,11 @@ func new_sensor() -> void:
 	_sensors.set(name, Sensor.new(name, 0, 100, 50))
 
 
+func reset_sensors():
+	for sensor in get_sensors():
+		sensor.reset()
+
+
 ## Edit Mode ##
 func get_edit_mode() -> bool:
 	return _edit_mode

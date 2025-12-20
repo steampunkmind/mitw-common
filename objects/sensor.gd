@@ -10,6 +10,7 @@ func _init(name: String, min: float, max: float, value: float):
 	_dict.set('min', min)
 	_dict.set('max', max)
 	_dict.set('value', value)
+	_dict.set('init_value', value)
 	
 	_types.set(SensorFormulaLinear.TYPE, SensorFormulaLinear.new())
 	_types.set(SensorFormulaSum.TYPE, SensorFormulaSum.new())
@@ -59,6 +60,10 @@ func get_formula_type(key: String) -> SensorFormula:
 	if !result:
 		print(formula_type_name + " formula type not found.")
 	return result
+
+
+func reset() -> void:
+	set_value(_dict.get('init_value'))
 
 
 ### Formulas ###
