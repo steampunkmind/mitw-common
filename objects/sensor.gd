@@ -77,7 +77,7 @@ func set_formula(formula: Formula) -> void:
 			_formulas.set(key, expression)
 
 
-func update_value() -> float:
+func update_value() -> void:
 	var new_value = 0.0
 	if (get_formulas() != null):
 		new_value = get_formula_value(get_formulas())
@@ -86,7 +86,7 @@ func update_value() -> float:
 		elif (new_value > get_max()):
 			new_value = get_max()
 			
-	return new_value
+	set_value(new_value)
 
 
 func get_formula_value(formulas: Dictionary) -> float:
