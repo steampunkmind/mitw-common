@@ -1,0 +1,62 @@
+{
+	"waiting": 250,
+	"wondering": 500,
+	"governors": [
+		{
+			"name": "Heat",
+			"sensor": "Temperature",
+			"error_threshold": 80,
+			"error_peak": 100,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 120,
+					"retain": 60,
+					"influences":
+						[
+							{
+								"duration": 30,
+								"start": 25,
+								"end": 150
+							},
+							{
+								"duration": 60,
+								"start": 200,
+								"end": 200
+							},
+							{
+								"duration": 30,
+								"start": 150,
+								"end": 50
+							}
+						]
+				}
+		},
+		{
+			"name": "Cold",
+			"sensor": "Temperature",
+			"perceptions":
+			[
+				{
+					"Intermittent":
+						{
+							"off_min_value": 30,
+							"off_max_value": 50,
+							"off_min_duration": 600,
+							"off_max_duration": 1200,
+							"on_min_duration": 300,
+							"on_max_duration": 600
+						}
+				}
+			],
+			"error_threshold": 60,
+			"error_peak": 20,
+			"error_max": 1,
+			"evaluator":
+				{
+					"duration": 60,
+					"retain": 20
+				}
+		}
+	]
+}
