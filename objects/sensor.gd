@@ -54,14 +54,6 @@ func get_dict() -> Dictionary:
 	return _dict
 	
 	
-func get_formula_type(key: String) -> SensorFormula:
-	var formula_type_name = key.get_basename()
-	var result = _types.get(formula_type_name)
-	if !result:
-		print(formula_type_name + " formula type not found.")
-	return result
-
-
 func reset() -> void:
 	set_value(_dict.get('init_value'))
 
@@ -87,6 +79,14 @@ func update_value() -> void:
 			new_value = get_max()
 			
 	set_value(new_value)
+
+
+func get_formula_type(key: String) -> SensorFormula:
+	var formula_type_name = key.get_basename()
+	var result = _types.get(formula_type_name)
+	if !result:
+		print(formula_type_name + " formula type not found.")
+	return result
 
 
 func get_formula_value(formulas: Dictionary) -> float:
