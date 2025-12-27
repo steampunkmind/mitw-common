@@ -20,6 +20,7 @@ func _init(name: String, min: float, max: float, value: float):
 	_types.set(SensorFormulaSelectAction.TYPE, SensorFormulaSelectAction.new())
 	_types.set(SensorFormulaDelayAction.TYPE, SensorFormulaDelayAction.new())
 	_types.set(SensorFormulaShuffleAction.TYPE, SensorFormulaShuffleAction.new())
+	_types.set(SensorFormulaSet.TYPE, SensorFormulaSet.new())
 	
 	
 func get_name():
