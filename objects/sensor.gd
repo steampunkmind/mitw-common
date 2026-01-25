@@ -35,6 +35,10 @@ func get_max():
 	return _dict.get('max')
 	
 	
+func get_range() -> float:
+	return get_max() - get_min()
+	
+	
 func get_value() -> float:
 	return _dict.get('value')
 	

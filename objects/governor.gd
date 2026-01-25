@@ -193,3 +193,17 @@ func get_action_evaluation_progress(action: Action) -> float:
 
 func get_action_evaluation_influence(action: Action) -> float:
 	return _action_evaluators.get(action).get_evaluation_influence()
+
+
+### Comparator ###
+func error_threshold_percent() -> float:
+	return _calc_percept_percent(error_threshold())
+
+
+func error_peak_percent() -> float:
+	return _calc_percept_percent(error_peak())
+
+
+func _calc_percept_percent(value: float) -> float:
+	var percept_range = get_sensor().get_max()-get_sensor().get_min()
+	return (percept_range - (value - get_sensor().get_min()))/percept_range
