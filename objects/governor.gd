@@ -96,6 +96,7 @@ func get_votes(action: Action) -> float:
 
 func update_values() -> void:
 	update_percept_value()
+	update_error_value()
 	update_action_evaluations()
 
 ### Perception ###
@@ -153,6 +154,31 @@ func get_formula_type(key: String) -> PerceptionFormula:
 	if !result:
 		print(formula_type_name + " formula type not found.")
 	return result
+
+
+### Error Value ###
+func update_error_value() -> void:
+	var value = get_percept_value();
+	if (value > get_sensor().get_max()):
+		value = get_sensor().get_max()
+	elif (value < get_sensor().get_min()):
+		value = get_sensor().get_min()
+	
+	_error_value = 0
+	if (error_threshold() >= error_peak()):
+		if (value < error_peak()): 
+			_error_value = error_max()
+		elif (value < error_threshold()):
+			_error_value = calc_error_value(value)
+	else:
+		if (error_peak() < value): 
+			_error_value = error_max()
+		elif (error_threshold() < value):
+			_error_value = calc_error_value(value)
+
+
+func calc_error_value(value: float) -> float:
+	return error_max() * (value - error_threshold())/(error_peak() - error_threshold())
 
 
 ### Action Opinions ###
