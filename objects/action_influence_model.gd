@@ -3,10 +3,26 @@ class_name ActionInfluenceModel extends Object
 var _actions: Array[Action]:
 	get = get_actions, set = set_actions
 var _sensors = {}
+var _sensor_dict = {}
 var _edit_mode: bool = false:
 	get = get_edit_mode, set = set_edit_mode
 
-var _sensor_dict = {}
+
+func set_model(json) -> void:
+	set_action_dicts(json.get('actions') as Array)
+	set_sensor_dicts(json.get('sensors') as Array)
+
+
+func clear_model() -> void:
+	_actions.clear()
+	_sensors.clear()
+	_sensor_dict.clear()
+	_edit_mode = false
+
+
+func is_model() -> bool:
+	return _actions.size() > 0 || _sensors.size() > 0
+
 
 ## Actions ##
 func get_actions() -> Array[Action]:

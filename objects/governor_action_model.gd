@@ -1,5 +1,7 @@
 class_name GovernorActionModel extends Object
 
+var _waiting: int = 0
+var _wondering: int = 0
 var _visible_actions = []
 var _selected_random_actions = []
 
@@ -7,6 +9,27 @@ var _governors: Array[Governor]:
 	get = get_governors, set = set_governors
 var _actions: Array[Action]:
 	get = get_actions, set = set_actions
+
+
+func set_model(json, aim_model) -> void:
+	_waiting = json.get('waiting')
+	_wondering = json.get('wondering')
+	set_governor_dicts(json.get('governors') as Array, aim_model)
+	set_actions(aim_model.get_actions())
+
+
+func clear_model() -> void:
+	_waiting = 0
+	_wondering = 0
+	_visible_actions.clear()
+	_selected_random_actions.clear()
+	_governors.clear()
+	_actions.clear()
+
+
+func is_model() -> bool:
+	return _governors.size() > 0 || _actions.size() > 0
+
 
 ## Governors ##
 func get_governors() -> Array[Governor]:
