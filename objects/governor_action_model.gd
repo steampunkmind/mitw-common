@@ -31,6 +31,14 @@ func is_model() -> bool:
 	return _governors.size() > 0 || _actions.size() > 0
 
 
+func get_waiting() -> int:
+	return _waiting
+
+
+func get_wondering() -> int:
+	return _wondering
+
+
 ## Governors ##
 func get_governors() -> Array[Governor]:
 	return _governors
