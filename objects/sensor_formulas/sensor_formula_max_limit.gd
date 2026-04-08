@@ -5,7 +5,7 @@ const TYPE = "Max Limit"
 func get_value(value: float, key: String, formulas: Dictionary) -> float:
 	var sensor_names = formulas.get(key)
 	for sensor_name: String in sensor_names:
-		var other_sensor = model.get_sensor(sensor_name)
+		var other_sensor = MITW.aim_model().get_sensor(sensor_name)
 		if (other_sensor.get_value() >= other_sensor.get_max()):
 			limit_value = true
 			break

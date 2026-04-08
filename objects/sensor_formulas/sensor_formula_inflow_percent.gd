@@ -7,8 +7,8 @@ func get_value(value: float, key: String, formulas: Dictionary) -> float:
 	for formula_dict: Dictionary in formula:
 		var sensor_name = formula_dict.get("sensor_name")
 		var inflow_percent = formula_dict.get("inflow_percent")
-		var other_sensor = model.get_sensor(sensor_name)
-		var sensor_value = model.get_sensor(sensor_name).get_value()
+		var other_sensor = MITW.aim_model().get_sensor(sensor_name)
+		var sensor_value = other_sensor.get_value()
 		value = value + (sensor_value * (inflow_percent/100))
 	return value
 
