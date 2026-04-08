@@ -95,4 +95,4 @@ func get_evaluation_progress() -> float:
 
 
 func get_evaluation_influence() -> float:
-	return _frame_influence() # 100 #_influence
+	return _frame_influence()

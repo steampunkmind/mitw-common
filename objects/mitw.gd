@@ -16,7 +16,12 @@ static func gam_model() -> GovernorActionModel:
 	return _gam_model 
 
 
-static func set_models(aim_model_dict: Dictionary, gam_model_dict: Dictionary) -> void:
+static func init(aim_model_dict: Dictionary, gam_model_dict: Dictionary) -> void:
+	_frame_count = 0
+	_waiting_value = 0
+	_wondering_value = 0
+	_total_error_value = 0.0
+	
 	_aim_model.clear_model()
 	_gam_model.clear_model()
 	_aim_model.set_model(aim_model_dict)
