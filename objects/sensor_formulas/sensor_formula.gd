@@ -1,6 +1,5 @@
 class_name SensorFormula extends RefCounted
 
-static var action_agent
 static var limit_value
 
 var _is_complete: bool = false

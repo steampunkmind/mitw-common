@@ -82,3 +82,31 @@ static func go_to_next_frame() -> void:
 		set_action(_gam_model.get_random_action())
 		
 	_frame_count += 1
+
+
+### Functions for SensorFormula classes ###
+static func select_action(action_name: String) -> void:
+	for action: Action in _aim_model.get_actions():
+		if (action.get_name() == action_name):
+			set_action(action)
+			break
+
+
+static func shuffle_action(action_names) -> void:
+	var actions_to_shuffle = []
+	for action: Action in _aim_model.get_actions():
+		if action_names.has(action.get_name()):
+			actions_to_shuffle.append(action)
+	
+	var influences_array = []
+	for action: Action in actions_to_shuffle:
+		var influences = action.get_influences()
+		influences_array.append(influences)
+		
+	influences_array.shuffle()
+	
+	var influences_index = 0
+	for action: Action in actions_to_shuffle:
+		var influences = influences_array[influences_index]
+		action.set_influences(influences)
+		influences_index = influences_index + 1

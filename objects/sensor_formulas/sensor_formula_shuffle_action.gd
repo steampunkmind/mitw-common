@@ -10,7 +10,7 @@ func get_value(value: float, key: String, formulas: Dictionary) -> float:
 	else:
 		delay_value -= 1
 	if (delay_value < 0):
-		action_agent.shuffle_action(formula.get("actions"))
+		MITW.shuffle_action(formula.get("actions"))
 		delay_value = randi_range(formula.get("min_delay"), formula.get("max_delay"))
 	formula.set("value", delay_value)
 	formulas.set(key, formula)

@@ -11,7 +11,7 @@ func get_value(value: float, key: String, formulas: Dictionary) -> float:
 		delay_value -= 1
 	if (delay_value < 0):
 		var action = formula.get("action")
-		action_agent.select_action(action)
+		MITW.select_action(action)
 		formula.erase("value")
 		formulas.set(key, formula)
 		formulas.erase(key)
