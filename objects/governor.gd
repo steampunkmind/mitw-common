@@ -12,9 +12,8 @@ func _init(dict: Dictionary, sensor: Sensor, aim_model: ActionInfluenceModel):
 	_dict = dict
 	_sensor = sensor
 	var evaluator = _dict.get("evaluator")
-	for action: Action in aim_model.get_actions():
-		if action.get_behavioral():
-			_action_evaluators.set(action, ActionEvaluator.new(evaluator))
+	for action: Action in aim_model.get_behavioral_actions():
+		_action_evaluators.set(action, ActionEvaluator.new(evaluator))
 			
 	_perception_types.set(PerceptionFormulaOffset.TYPE, PerceptionFormulaOffset.new())
 	_perception_types.set(PerceptionFormulaIntermittent.TYPE, PerceptionFormulaIntermittent.new())
@@ -200,7 +199,7 @@ func update_action_evaluations() -> void:
 
 
 func get_action_evaluation_value(action: Action) -> float:
-	var evaluator = _action_evaluators.get(action)
+	var evaluator: ActionEvaluator = _action_evaluators.get(action)
 	if evaluator: # hidden actions do not have evaluators
 		return evaluator.get_evaluation_value()
 	return 0.0

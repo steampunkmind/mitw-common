@@ -15,7 +15,7 @@ func get_name():
 	return _dict.get('name')
 	
 	
-func get_behavioral():
+func get_behavioral() -> bool:
 	return _dict.get('behavioral')
 	
 	

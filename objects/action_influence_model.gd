@@ -1,7 +1,7 @@
 class_name ActionInfluenceModel extends Object
 
-var _actions: Array[Action]:
-	get = get_actions, set = set_actions
+var _actions: Array[Action]
+var _behavioral_actions: Array[Action]
 var _sensors = {}
 var _sensor_dict = {}
 var _edit_mode: bool = false:
@@ -15,6 +15,7 @@ func set_model(json) -> void:
 
 func clear_model() -> void:
 	_actions.clear()
+	_behavioral_actions.clear()
 	_sensors.clear()
 	_sensor_dict.clear()
 	_edit_mode = false
@@ -29,8 +30,8 @@ func get_actions() -> Array[Action]:
 	return _actions
 
 
-func set_actions(value: Array[Action]):
-	_actions = value
+func get_behavioral_actions() -> Array[Action]:
+	return _behavioral_actions
 
 
 func get_action_dicts() -> Array:
@@ -46,6 +47,7 @@ func set_action_dicts(action_dicts: Array) -> void:
 
 func fill_actions(action_array: Array) -> void:
 	_actions.clear()
+	_behavioral_actions.clear()
 	for action_dict: Dictionary in action_array:
 		var influences: Array[Influence]
 		var influence_dict = action_dict.get("influences")
@@ -55,7 +57,10 @@ func fill_actions(action_array: Array) -> void:
 			var influence = Influence.new(sensor_name, formula)
 			influences.append(influence)
 		
-		_actions.append(Action.new(action_dict.get("name"), action_dict.get("behavioral"), influences))
+		var action = Action.new(action_dict.get("name"), action_dict.get("behavioral"), influences)
+		_actions.append(action)
+		if action.get_behavioral():
+			_behavioral_actions.append(action)
 
 
 func set_action(action: Action) -> void:

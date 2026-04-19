@@ -2,33 +2,27 @@ class_name GovernorActionModel extends Object
 
 var _waiting: int = 0
 var _wondering: int = 0
-var _behavioral_actions = []
 var _selected_random_actions = []
 
 var _governors: Array[Governor]:
 	get = get_governors, set = set_governors
-var _actions: Array[Action]:
-	get = get_actions, set = set_actions
 
 
 func set_model(json, aim_model) -> void:
 	_waiting = json.get('waiting')
 	_wondering = json.get('wondering')
 	set_governor_dicts(json.get('governors') as Array, aim_model)
-	set_actions(aim_model.get_actions())
 
 
 func clear_model() -> void:
 	_waiting = 0
 	_wondering = 0
-	_behavioral_actions.clear()
 	_selected_random_actions.clear()
 	_governors.clear()
-	_actions.clear()
 
 
 func is_model() -> bool:
-	return _governors.size() > 0 || _actions.size() > 0
+	return _governors.size() > 0
 
 
 func get_waiting() -> int:
@@ -66,23 +60,6 @@ func fill_governors(governor_array: Array, aim_model: ActionInfluenceModel) -> v
 		_governors.append(Governor.new(governor_dict, sensor, aim_model))
 
 
-## Actions ##
-func get_actions() -> Array[Action]:
-	return _actions
-
-
-func get_behavioral_actions() -> Array[Action]:
-	return _behavioral_actions
-
-
-func set_actions(value: Array[Action]):
-	_actions = value
-	_behavioral_actions.clear()
-	for action: Action in _actions:
-		if action.get_behavioral():
-			_behavioral_actions.append(action)
-
-
 ## Utils ##
 func get_absolute_evaluation_value(action: Action) -> float:
 	var result = 0.0
@@ -100,11 +77,11 @@ func get_total_votes_value(action: Action) -> float:
 
 
 func get_random_action() -> Action:
-	if _selected_random_actions.size() == _behavioral_actions.size():
+	if _selected_random_actions.size() == MITW.aim_model().get_behavioral_actions().size():
 		_selected_random_actions.clear()
 		
 	var actions = []
-	for action: Action in _behavioral_actions:
+	for action: Action in MITW.aim_model().get_behavioral_actions():
 		if !_selected_random_actions.has(action):
 			actions.append(action)
 				
@@ -116,7 +93,7 @@ func get_random_action() -> Action:
 func get_lowest_evaluation_action() -> Action:
 	var value = INF
 	var actions = []
-	for action: Action in _behavioral_actions:
+	for action: Action in MITW.aim_model().get_behavioral_actions():
 		var action_value = get_absolute_evaluation_value(action)
 		if action_value < value:
 			value = action_value
@@ -131,7 +108,7 @@ func get_lowest_evaluation_action() -> Action:
 func get_highest_votes_action() -> Action:
 	var value = -INF
 	var actions = []
-	for action: Action in _behavioral_actions:
+	for action: Action in MITW.aim_model().get_behavioral_actions():
 		var action_value = get_total_votes_value(action)
 		if action_value > value:
 			value = action_value
