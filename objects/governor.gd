@@ -13,7 +13,7 @@ func _init(dict: Dictionary, sensor: Sensor, aim_model: ActionInfluenceModel):
 	_sensor = sensor
 	var evaluator = _dict.get("evaluator")
 	for action: Action in aim_model.get_actions():
-		if action.get_visible():
+		if action.get_behavioral():
 			_action_evaluators.set(action, ActionEvaluator.new(evaluator))
 			
 	_perception_types.set(PerceptionFormulaOffset.TYPE, PerceptionFormulaOffset.new())

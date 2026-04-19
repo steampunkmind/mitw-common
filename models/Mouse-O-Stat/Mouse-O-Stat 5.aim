@@ -28,7 +28,7 @@
 				}
 			},
 			"name": "Init",
-			"visible": false
+			"behavioral": false
 		},
 		{
 			"influences": {
@@ -37,7 +37,7 @@
 				}
 			},
 			"name": "-A-",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -46,7 +46,7 @@
 				}
 			},
 			"name": "-B-",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -55,7 +55,7 @@
 				}
 			},
 			"name": "-C-",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -64,7 +64,7 @@
 				}
 			},
 			"name": "-D-",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -73,7 +73,7 @@
 				}
 			},
 			"name": "-E-",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -82,7 +82,7 @@
 				}
 			},
 			"name": "No Change",
-			"visible": false
+			"behavioral": false
 		},
 		{
 			"influences": {
@@ -91,7 +91,7 @@
 				}
 			},
 			"name": "Warming",
-			"visible": false
+			"behavioral": false
 		},
 		{
 			"influences": {
@@ -100,7 +100,7 @@
 				}
 			},
 			"name": "Cooling",
-			"visible": false
+			"behavioral": false
 		}
 	],
 	"sensors": [

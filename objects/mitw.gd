@@ -50,7 +50,7 @@ static func init_action() -> void:
 
 static func set_action(action: Action) -> void:
 	_aim_model.set_action(action)
-	if (action.get_visible()): # only visible actions are evaluated by governors
+	if (action.get_behavioral()): # only behavioral actions are evaluated by governors
 		for governor: Governor in _gam_model.get_governors():
 			governor.set_action(action)
 

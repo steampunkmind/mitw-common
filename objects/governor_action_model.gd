@@ -2,7 +2,7 @@ class_name GovernorActionModel extends Object
 
 var _waiting: int = 0
 var _wondering: int = 0
-var _visible_actions = []
+var _behavioral_actions = []
 var _selected_random_actions = []
 
 var _governors: Array[Governor]:
@@ -21,7 +21,7 @@ func set_model(json, aim_model) -> void:
 func clear_model() -> void:
 	_waiting = 0
 	_wondering = 0
-	_visible_actions.clear()
+	_behavioral_actions.clear()
 	_selected_random_actions.clear()
 	_governors.clear()
 	_actions.clear()
@@ -71,12 +71,16 @@ func get_actions() -> Array[Action]:
 	return _actions
 
 
+func get_behavioral_actions() -> Array[Action]:
+	return _behavioral_actions
+
+
 func set_actions(value: Array[Action]):
 	_actions = value
-	_visible_actions.clear()
+	_behavioral_actions.clear()
 	for action: Action in _actions:
-		if action.get_visible():
-			_visible_actions.append(action)
+		if action.get_behavioral():
+			_behavioral_actions.append(action)
 
 
 ## Utils ##
@@ -96,11 +100,11 @@ func get_total_votes_value(action: Action) -> float:
 
 
 func get_random_action() -> Action:
-	if _selected_random_actions.size() == _visible_actions.size():
+	if _selected_random_actions.size() == _behavioral_actions.size():
 		_selected_random_actions.clear()
 		
 	var actions = []
-	for action: Action in _visible_actions:
+	for action: Action in _behavioral_actions:
 		if !_selected_random_actions.has(action):
 			actions.append(action)
 				
@@ -112,7 +116,7 @@ func get_random_action() -> Action:
 func get_lowest_evaluation_action() -> Action:
 	var value = INF
 	var actions = []
-	for action: Action in _visible_actions:
+	for action: Action in _behavioral_actions:
 		var action_value = get_absolute_evaluation_value(action)
 		if action_value < value:
 			value = action_value
@@ -127,7 +131,7 @@ func get_lowest_evaluation_action() -> Action:
 func get_highest_votes_action() -> Action:
 	var value = -INF
 	var actions = []
-	for action: Action in _visible_actions:
+	for action: Action in _behavioral_actions:
 		var action_value = get_total_votes_value(action)
 		if action_value > value:
 			value = action_value

@@ -55,7 +55,7 @@ func fill_actions(action_array: Array) -> void:
 			var influence = Influence.new(sensor_name, formula)
 			influences.append(influence)
 		
-		_actions.append(Action.new(action_dict.get("name"), action_dict.get("visible"), influences))
+		_actions.append(Action.new(action_dict.get("name"), action_dict.get("behavioral"), influences))
 
 
 func set_action(action: Action) -> void:
