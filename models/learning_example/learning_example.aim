@@ -1,0 +1,48 @@
+{
+	"actions": [
+		{
+			"influences": {
+				"A": {
+					"Linear": -0.04,
+					"Shuffle Action": {
+						"min_delay": 600,
+						"max_delay": 600,
+						"repeats": -1,
+						"actions": [
+							"Up",
+							"Down"
+						]
+					}
+				}
+			},
+			"name": "Init",
+			"visible": false
+		},
+		{
+			"influences": {
+				"A": {
+					"Linear": 0.04
+				}
+			},
+			"name": "A",
+			"visible": true
+		},
+		{
+			"influences": {
+				"A": {
+					"Linear": -0.04
+				}
+			},
+			"name": "B",
+			"visible": true
+		}
+	],
+	"sensors": [
+		{
+			"max": 100.0,
+			"min": 0.0,
+			"name": "A",
+			"value": 60.0
+		}
+	]
+}

@@ -1,0 +1,30 @@
+{
+	"waiting": 240,
+	"wondering": 5000,
+	"governors": [
+		{
+			"name": "Low",
+			"sensor": "A",
+			"error_threshold": 50,
+			"error_peak": 25,
+			"error_max": 10,
+			"evaluator":
+				{
+					"duration": 60,
+					"retain": 20
+				}
+		},
+		{
+			"name": "High",
+			"sensor": "A",
+			"error_threshold": 50,
+			"error_peak": 75,
+			"error_max": 10,
+			"evaluator":
+				{
+					"duration": 60,
+					"retain": 20
+				}
+		}
+	]
+}
