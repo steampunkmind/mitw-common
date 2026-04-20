@@ -13,7 +13,7 @@ func get_value(value: float, key: String, formulas: Dictionary) -> float:
 		var actions = formula.get("actions")
 		var i = randi() % actions.size()
 		var action_name = actions[i]
-		action_agent.select_action(action_name)
+		MITW.select_action(action_name)
 		delay_value = randi_range(formula.get("min_delay"), formula.get("max_delay"))
 	formula.set("value", delay_value)
 	formulas.set(key, formula)

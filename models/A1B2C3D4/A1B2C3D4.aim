@@ -16,7 +16,7 @@
 				}
 			},
 			"name": "Init",
-			"visible": false
+			"behavioral": false
 		},
 		{
 			"influences": {
@@ -28,7 +28,7 @@
 				}
 			},
 			"name": "A+2",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -40,7 +40,7 @@
 				}
 			},
 			"name": "B+4",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -52,7 +52,7 @@
 				}
 			},
 			"name": "C+6",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -64,7 +64,7 @@
 				}
 			},
 			"name": "D+8",
-			"visible": true
+			"behavioral": true
 		}
 	],
 	"sensors": [

@@ -16,7 +16,7 @@
 				}
 			},
 			"name": "Init",
-			"visible": false
+			"behavioral": false
 		},
 		{
 			"influences": {
@@ -25,7 +25,7 @@
 				}
 			},
 			"name": "Off",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -34,7 +34,7 @@
 				}
 			},
 			"name": "Low Heat",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -43,7 +43,7 @@
 				}
 			},
 			"name": "High Heat",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -52,7 +52,7 @@
 				}
 			},
 			"name": "Low Cool",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -61,7 +61,7 @@
 				}
 			},
 			"name": "High Cool",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -70,7 +70,7 @@
 				}
 			},
 			"name": "No Change",
-			"visible": false
+			"behavioral": false
 		},
 		{
 			"influences": {
@@ -79,7 +79,7 @@
 				}
 			},
 			"name": "Warming",
-			"visible": false
+			"behavioral": false
 		},
 		{
 			"influences": {
@@ -88,7 +88,7 @@
 				}
 			},
 			"name": "Cooling",
-			"visible": false
+			"behavioral": false
 		}
 	],
 	"sensors": [
