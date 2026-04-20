@@ -16,7 +16,7 @@
 				}
 			},
 			"name": "Init",
-			"visible": false
+			"behavioral": false
 		},
 		{
 			"influences": {
@@ -25,7 +25,7 @@
 				}
 			},
 			"name": "A",
-			"visible": true
+			"behavioral": true
 		},
 		{
 			"influences": {
@@ -34,7 +34,7 @@
 				}
 			},
 			"name": "B",
-			"visible": true
+			"behavioral": true
 		}
 	],
 	"sensors": [
