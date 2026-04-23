@@ -4,7 +4,7 @@ var _dict: Dictionary
 var _sensor: Sensor
 var _perception_types = {} 
 var _perception_formulas = {}
-var _action_evaluators: Dictionary
+var _action_evaluators: Dictionary # Holds evaluator for every behavioral action
 var _error_value
 
 # Constructor
@@ -182,13 +182,11 @@ func calc_error_value(value: float) -> float:
 
 ### Action Opinions ###
 func set_action(action: Action) -> void:
-	var evaluator = _action_evaluators.get(action)
-	evaluator.start_evaluating()
+	_action_evaluators.get(action).start_evaluating()
 
 
 func is_evaluating_action(action: Action) -> bool:
-	var evaluator = _action_evaluators.get(action)
-	return evaluator.is_evaluating()
+	return _action_evaluators.get(action).is_evaluating()
 
 
 ### Action Evaluating ###
@@ -199,17 +197,11 @@ func update_action_evaluations() -> void:
 
 
 func get_action_evaluation_value(action: Action) -> float:
-	var evaluator: ActionEvaluator = _action_evaluators.get(action)
-	if evaluator: # hidden actions do not have evaluators
-		return evaluator.get_evaluation_value()
-	return 0.0
+	return _action_evaluators.get(action).get_evaluation_value()
 
 
 func get_action_evaluation_text(action: Action) -> String:
-	var evaluator = _action_evaluators.get(action)
-	if evaluator: # hidden actions do not have evaluators
-		return evaluator.get_evaluation_text()
-	return "NA"
+	return _action_evaluators.get(action).get_evaluation_text()
 
 
 func get_action_evaluation_progress(action: Action) -> float:
