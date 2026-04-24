@@ -44,7 +44,7 @@ func update_evaluation(new_value: float, is_max_type: bool) -> void:
 		for value in _evaluation_frames:
 			sum_value += value
 			
-		_evaluation_value = sum_value/_evaluation_frames.size()
+		_evaluation_value = (sum_value/_evaluation_frames.size())*_duration
 		
 	_previous_value = new_value
 
@@ -87,7 +87,7 @@ func get_evaluation_value() -> float:
 
 
 func get_evaluation_text() -> String:
-	return str("%.1f" % (_evaluation_value*100))
+	return str("%.1f" % (_evaluation_value))
 
 
 func get_evaluation_progress() -> float:

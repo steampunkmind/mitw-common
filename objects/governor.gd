@@ -89,7 +89,7 @@ func get_votes(action: Action) -> float:
 	if evaluator:
 		var evaluation_value = evaluator.get_evaluation_value()
 		if evaluation_value: 
-			return evaluation_value * _error_value * 100
+			return evaluation_value * _error_value
 	return 0.0
 
 
