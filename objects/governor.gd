@@ -222,5 +222,8 @@ func error_peak_percent() -> float:
 
 
 func _calc_percept_percent(value: float) -> float:
-	var percept_range = get_sensor().get_max()-get_sensor().get_min()
-	return (percept_range - (value - get_sensor().get_min()))/percept_range
+	return (percept_range() - (value - get_sensor().get_min()))/percept_range()
+
+
+func percept_range() -> float:
+	return get_sensor().get_max()-get_sensor().get_min()
