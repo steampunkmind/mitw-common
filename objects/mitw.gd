@@ -37,12 +37,20 @@ static func get_waiting_value() -> int:
 	return _waiting_value
 
 
+static func get_waiting_max() -> int:
+	return _gam_model.get_waiting()
+
+
 static func get_waiting_countdown() -> int:
 	return _gam_model.get_waiting() - _waiting_value
 
 
 static func get_wondering_value() -> int:
 	return _wondering_value
+
+
+static func get_wondering_max() -> int:
+	return _gam_model.get_wondering()
 
 
 static func get_wondering_countdown() -> int:

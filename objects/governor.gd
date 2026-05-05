@@ -48,10 +48,6 @@ func error_max():
 	return _dict.get('error_max')
 
 
-func error_min():
-	return 0
-
-
 func get_sensor():
 	return _sensor
 
