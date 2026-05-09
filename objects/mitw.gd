@@ -3,6 +3,8 @@ class_name MITW extends Object
 static var _aim_model: ActionInfluenceModel = ActionInfluenceModel.new()
 static var _gam_model: GovernorActionModel = GovernorActionModel.new()
 
+static var _action: Action
+static var _frame_action: Action # action initiated on the current frame
 static var _frame_count: int = 0
 static var _waiting_value: int = 0
 static var _wondering_value: int = 0
@@ -65,14 +67,28 @@ static func init_action() -> void:
 	set_action(aim_model().get_actions()[0])
 
 
+static func get_action() -> Action:
+	return _action
+
+
 static func set_action(action: Action) -> void:
+	_frame_action = action
+	_action = action
 	_aim_model.set_action(action)
 	if (action.get_behavioral()): # only behavioral actions are evaluated by governors
 		for governor: Governor in _gam_model.get_governors():
 			governor.set_action(action)
 
 
+static func get_frame_action() -> Action:
+	return _frame_action
+
+
 static func go_to_next_frame() -> void:
+	_frame_action = null
+	if _frame_count == 0:
+		init_action()
+	
 	for sensor in _aim_model.get_sensors():
 		sensor.update_value()
 	
