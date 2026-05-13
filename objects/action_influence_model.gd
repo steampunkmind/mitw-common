@@ -99,11 +99,11 @@ func set_sensor_dicts(sensor_dicts: Array) -> void:
 func fill_sensors(sensor_dicts: Array) -> void:
 	_sensors = {}
 	for sensor_dict: Dictionary in sensor_dicts:
-		var name = sensor_dict.get('name')
-		var min = sensor_dict.get('min')
-		var max = sensor_dict.get('max')
-		var value = sensor_dict.get('value')
-		_sensors.set(name, Sensor.new(name, min, max, value))
+		var sensor_name = sensor_dict.get('name')
+		var sensor_min = sensor_dict.get('min')
+		var sensor_max = sensor_dict.get('max')
+		var sensor_value = sensor_dict.get('value')
+		_sensors.set(sensor_name, Sensor.new(sensor_name, sensor_min, sensor_max, sensor_value))
 
 
 func new_sensor() -> void:

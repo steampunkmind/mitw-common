@@ -2,7 +2,7 @@ class_name SensorFormulaSum extends SensorFormula
 
 const TYPE = "Sum"
 
-func get_value(value: float, key: String, formulas: Dictionary) -> float:
+func get_value(_value: float, key: String, formulas: Dictionary) -> float:
 	var result = 0.0
 	var sensor_names = formulas.get(key)
 	for sensor_name: String in sensor_names:

@@ -59,7 +59,7 @@ static func get_wondering_countdown() -> int:
 	return _gam_model.get_wondering() - _wondering_value
 
 
-static func get_total_error_value() -> int:
+static func get_total_error_value() -> float:
 	return _total_error_value
 
 
