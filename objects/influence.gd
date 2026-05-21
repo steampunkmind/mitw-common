@@ -13,11 +13,13 @@ func get_sensor_name():
 	return _sensor_name
 	
 	
-func get_formula():
+func get_formula() -> Formula:
 	return _formula
 	
 	
 func get_dict() -> Dictionary:
 	return _formula.get_dict()
-	
-	
+
+
+func to_text() -> String:
+	return get_sensor_name() + "(" + _formula.to_text() + ")"
