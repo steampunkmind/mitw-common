@@ -19,6 +19,10 @@ func get_behavioral() -> bool:
 	return _dict.get('behavioral')
 	
 	
+func set_behavioral(value: bool) -> void:
+	_dict.set('behavioral', value)
+	
+	
 func get_influences() -> Array[Influence]:
 	return _influences
 	
