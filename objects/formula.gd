@@ -4,7 +4,7 @@ var _dict
 
 # Constructor
 func _init(expressions: Dictionary):
-	_dict = expressions.duplicate(true)
+	_dict = expressions
 	
 	
 func get_expressions() -> Dictionary:
