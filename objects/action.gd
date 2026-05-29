@@ -31,6 +31,13 @@ func set_influences(value: Array[Influence]) -> void:
 	_influences = value
 	
 	
+func add_influence(sensor_name: String) -> Influence:
+	var formula = Formula.new({})
+	var influence = Influence.new(sensor_name, formula)
+	_influences.append(influence)
+	return influence
+	
+	
 func get_dict() -> Dictionary:
 	var result = _dict.duplicate(true)
 	var influences = {}
