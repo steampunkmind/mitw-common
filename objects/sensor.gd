@@ -2,7 +2,6 @@ class_name Sensor extends RefCounted
 
 var _dict = {}
 var _formulas = {}
-var _types = {}
 
 # Constructor
 func _init(_name: String, _min: float, _max: float, _value: float):
@@ -11,16 +10,6 @@ func _init(_name: String, _min: float, _max: float, _value: float):
 	_dict.set('max', _max)
 	_dict.set('value', _value)
 	_dict.set('init_value', _value)
-	
-	_types.set(SensorFormulaLinear.TYPE, SensorFormulaLinear.new())
-	_types.set(SensorFormulaSum.TYPE, SensorFormulaSum.new())
-	_types.set(SensorFormulaMaxLimit.TYPE, SensorFormulaMaxLimit.new())
-	_types.set(SensorFormulaOutflowPercent.TYPE, SensorFormulaOutflowPercent.new())
-	_types.set(SensorFormulaInflowPercent.TYPE, SensorFormulaInflowPercent.new())
-	_types.set(SensorFormulaSelectAction.TYPE, SensorFormulaSelectAction.new())
-	_types.set(SensorFormulaDelayAction.TYPE, SensorFormulaDelayAction.new())
-	_types.set(SensorFormulaShuffleAction.TYPE, SensorFormulaShuffleAction.new())
-	_types.set(SensorFormulaSet.TYPE, SensorFormulaSet.new())
 	
 	
 func get_name():
@@ -86,9 +75,13 @@ func update_value() -> void:
 	set_value(new_value)
 
 
+func get_formula_types() -> Array[String]:
+	return MITW.get_sensor_formula_types().keys()
+
+
 func get_formula_type(key: String) -> SensorFormula:
 	var formula_type_name = key.get_basename()
-	var result = _types.get(formula_type_name)
+	var result = MITW.get_sensor_formula_types().get(formula_type_name)
 	if !result:
 		print(formula_type_name + " formula type not found.")
 	return result

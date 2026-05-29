@@ -2,6 +2,7 @@ class_name MITW extends Object
 
 static var _aim_model: ActionInfluenceModel = ActionInfluenceModel.new()
 static var _gam_model: GovernorActionModel = GovernorActionModel.new()
+static var _sensor_formula_types: Dictionary = {}
 
 static var _action: Action
 static var _frame_action: Action # action initiated on the current frame
@@ -18,6 +19,10 @@ static func gam_model() -> GovernorActionModel:
 	return _gam_model 
 
 
+static func get_sensor_formula_types() -> Dictionary:
+	return _sensor_formula_types
+
+
 static func init(aim_model_dict: Dictionary, gam_model_dict: Dictionary) -> void:
 	_frame_count = 0
 	_waiting_value = 0
@@ -29,6 +34,16 @@ static func init(aim_model_dict: Dictionary, gam_model_dict: Dictionary) -> void
 	_aim_model.set_model(aim_model_dict)
 	if gam_model_dict.size() > 0:
 		_gam_model.set_model(gam_model_dict, _aim_model)
+		
+	_sensor_formula_types.set(SensorFormulaLinear.TYPE, SensorFormulaLinear.new())
+	_sensor_formula_types.set(SensorFormulaSum.TYPE, SensorFormulaSum.new())
+	_sensor_formula_types.set(SensorFormulaMaxLimit.TYPE, SensorFormulaMaxLimit.new())
+	_sensor_formula_types.set(SensorFormulaOutflowPercent.TYPE, SensorFormulaOutflowPercent.new())
+	_sensor_formula_types.set(SensorFormulaInflowPercent.TYPE, SensorFormulaInflowPercent.new())
+	_sensor_formula_types.set(SensorFormulaSelectAction.TYPE, SensorFormulaSelectAction.new())
+	_sensor_formula_types.set(SensorFormulaDelayAction.TYPE, SensorFormulaDelayAction.new())
+	_sensor_formula_types.set(SensorFormulaShuffleAction.TYPE, SensorFormulaShuffleAction.new())
+	_sensor_formula_types.set(SensorFormulaSet.TYPE, SensorFormulaSet.new())
 
 
 static func get_frame_count() -> int:
