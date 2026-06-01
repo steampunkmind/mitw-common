@@ -36,8 +36,12 @@ func add_influence(sensor_name: String) -> Influence:
 	var influence = Influence.new(sensor_name, formula)
 	_influences.append(influence)
 	return influence
-	
-	
+
+
+func delete_influence(influence: Influence) -> void:
+	_influences.erase(influence)
+
+
 func get_dict() -> Dictionary:
 	var result = _dict.duplicate(true)
 	var influences = {}
