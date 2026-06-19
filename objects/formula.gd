@@ -31,7 +31,7 @@ func _expression_to_text(expression) -> String:
 	var result: String = ""
 	if expression is String:
 		result = expression
-	elif expression is float:
+	elif expression is int or expression is float:
 		result = str(expression)
 	elif expression is Array:
 		result = _array_to_text(expression)
