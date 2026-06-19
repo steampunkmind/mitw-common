@@ -16,7 +16,6 @@
 				  "Shuffle Action": {
 					  "min_delay": 600,
 					  "max_delay": 600,
-					  "repeats": -1,
 					  "actions": [
 						  "-A-",
 						  "-B-",
