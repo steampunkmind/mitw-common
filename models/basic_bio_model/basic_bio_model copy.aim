@@ -1,0 +1,209 @@
+{
+	"actions": [
+		{
+			"behavioral": true,
+			"influences": {
+				"Bladder": {
+					"Inflow Percent": [
+						{
+							"inflow_percent": 0.038,
+							"sensor_name": "Stomach Liquid"
+						}
+					],
+					"Linear": 0.0
+				},
+				"Bowels": {
+					"Inflow Percent": [
+						{
+							"inflow_percent": 0.038,
+							"sensor_name": "Stomach Solid"
+						}
+					],
+					"Linear": 0.0
+				},
+				"Energy": {
+					"Linear": 0.03
+				},
+				"Mood": {
+					"Linear": -0.03
+				},
+				"Stomach Liquid": {
+					"Linear": 0.0,
+					"Max Limit": [
+						"Stomach Total"
+					],
+					"Outflow Percent": 0.025
+				},
+				"Stomach Solid": {
+					"Linear": -0.003,
+					"Max Limit": [
+						"Stomach Total"
+					],
+					"Outflow Percent": 0.05
+				},
+				"Stomach Total": {
+					"Sum": [
+						"Stomach Liquid",
+						"Stomach Solid"
+					]
+				}
+			},
+			"name": "Sit"
+		},
+		{
+			"behavioral": true,
+			"influences": {
+				"Bladder": {
+					"Linear": 0.0
+				},
+				"Bowels": {
+					"Linear": 0.0
+				},
+				"Energy": {
+					"Linear": -0.03
+				},
+				"Mood": {
+					"Linear": 0.03
+				},
+				"Stomach Liquid": {
+					"Linear": 0.0,
+					"Outflow Percent": 0.125
+				},
+				"Stomach Solid": {
+					"Linear": -0.015
+				}
+			},
+			"name": "Walk"
+		},
+		{
+			"behavioral": true,
+			"influences": {
+				"Bladder": {
+					"Linear": 0.0
+				},
+				"Bowels": {
+					"Linear": 0.0
+				},
+				"Energy": {
+					"Linear": 0.03
+				},
+				"Mood": {
+					"Linear": -0.03
+				},
+				"Stomach Liquid": {
+					"Linear": 0.3,
+					"Outflow Percent": 0.0
+				},
+				"Stomach Solid": {
+					"Linear": -0.003
+				}
+			},
+			"name": "Drink"
+		},
+		{
+			"behavioral": true,
+			"influences": {
+				"Bladder": {
+					"Linear": 0.0
+				},
+				"Bowels": {
+					"Linear": 0.0
+				},
+				"Energy": {
+					"Linear": 0.03
+				},
+				"Mood": {
+					"Linear": -0.03
+				},
+				"Stomach Liquid": {
+					"Linear": -0.005
+				},
+				"Stomach Solid": {
+					"Linear": 0.15
+				}
+			},
+			"name": "Eat"
+		},
+		{
+			"behavioral": true,
+			"influences": {
+				"Bladder": {
+					"Linear": -0.2
+				},
+				"Energy": {
+					"Linear": 0.03
+				},
+				"Mood": {
+					"Linear": -0.03
+				}
+			},
+			"name": "Pee"
+		},
+		{
+			"behavioral": true,
+			"influences": {
+				"Bowels": {
+					"Linear": -0.2
+				},
+				"Energy": {
+					"Linear": 0.03
+				},
+				"Mood": {
+					"Linear": -0.03
+				}
+			},
+			"name": "Poo"
+		}
+	],
+	"sensors": [
+		{
+			"init_value": 51.0,
+			"max": 101.0,
+			"min": 0.1,
+			"name": "Mood",
+			"value": 48.7799999999999
+		},
+		{
+			"init_value": 50.0,
+			"max": 100.0,
+			"min": 0.0,
+			"name": "Energy",
+			"value": 52.2200000000001
+		},
+		{
+			"init_value": 35.0,
+			"max": 100.0,
+			"min": 0.0,
+			"name": "Stomach Liquid",
+			"value": 34.3583731436382
+		},
+		{
+			"init_value": 35.0,
+			"max": 100.0,
+			"min": 0.0,
+			"name": "Stomach Solid",
+			"value": 33.5104649533026
+		},
+		{
+			"init_value": 50.0,
+			"max": 100.0,
+			"min": 0.0,
+			"name": "Stomach Total",
+			"value": 67.8688380969408
+		},
+		{
+			"init_value": 0.0,
+			"max": 100.0,
+			"min": 0.0,
+			"name": "Bladder",
+			"value": 0.975029003464618
+		},
+		{
+			"init_value": 0.0,
+			"max": 100.0,
+			"min": 0.0,
+			"name": "Bowels",
+			"value": 0.962844972172254
+		}
+	]
+}

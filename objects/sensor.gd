@@ -10,44 +10,64 @@ func _init(_name: String, _min: float, _max: float, _value: float):
 	_dict.set('max', _max)
 	_dict.set('value', _value)
 	_dict.set('init_value', _value)
-	
-	
-func get_name():
+
+
+func get_name() -> String:
 	return _dict.get('name')
-	
-	
+
+
+func set_name(name: String):
+	_dict.set('name', name)
+
+
 func get_min():
 	return _dict.get('min')
-	
-	
+
+
+func set_min(min):
+	_dict.set('min', min)
+
+
 func get_max():
 	return _dict.get('max')
-	
-	
+
+
+func set_max(max):
+	return _dict.set('max', max)
+
+
+func get_init():
+	return _dict.get('init_value')
+
+
+func set_init(init):
+	return _dict.set('init_value', init)
+
+
 func get_range() -> float:
 	return get_max() - get_min()
-	
-	
+
+
 func get_value() -> float:
 	return _dict.get('value')
-	
-	
+
+
 func set_value(value: float):
 	_dict.set('value', value)
-	
-	
+
+
 func get_formulas() -> Dictionary:
 	return _formulas
-	
-	
+
+
 func set_formulas(value: Dictionary):
 	_formulas = value
-	
-	
+
+
 func get_dict() -> Dictionary:
 	return _dict
-	
-	
+
+
 func reset() -> void:
 	set_value(_dict.get('init_value'))
 
