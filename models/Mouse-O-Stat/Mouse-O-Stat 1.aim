@@ -78,7 +78,7 @@
 			"max": 120.0,
 			"min": 0.0,
 			"name": "Temperature",
-			"value": 70.0
+			"init": 70.0
 		}
 	]
 }

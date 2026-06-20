@@ -102,8 +102,8 @@ func fill_sensors(sensor_dicts: Array) -> void:
 		var sensor_name = sensor_dict.get('name')
 		var sensor_min = sensor_dict.get('min')
 		var sensor_max = sensor_dict.get('max')
-		var sensor_value = sensor_dict.get('value')
-		_sensors.set(sensor_name, Sensor.new(sensor_name, sensor_min, sensor_max, sensor_value))
+		var sensor_init = sensor_dict.get('init')
+		_sensors.set(sensor_name, Sensor.new(sensor_name, sensor_min, sensor_max, sensor_init))
 
 
 func new_sensor() -> void:

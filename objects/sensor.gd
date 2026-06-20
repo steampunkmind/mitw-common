@@ -2,14 +2,15 @@ class_name Sensor extends RefCounted
 
 var _dict = {}
 var _formulas = {}
+var _value: float = 0.0
 
 # Constructor
-func _init(_name: String, _min: float, _max: float, _value: float):
-	_dict.set('name', _name)
-	_dict.set('min', _min)
-	_dict.set('max', _max)
-	_dict.set('value', _value)
-	_dict.set('init_value', _value)
+func _init(name: String, min: float, max: float, init: float):
+	_dict.set('name', name)
+	_dict.set('min', min)
+	_dict.set('max', max)
+	_dict.set('init', init)
+	_value = init
 
 
 func get_name() -> String:
@@ -37,11 +38,11 @@ func set_max(max):
 
 
 func get_init():
-	return _dict.get('init_value')
+	return _dict.get('init')
 
 
 func set_init(init):
-	return _dict.set('init_value', init)
+	return _dict.set('init', init)
 
 
 func get_range() -> float:
@@ -49,11 +50,11 @@ func get_range() -> float:
 
 
 func get_value() -> float:
-	return _dict.get('value')
+	return _value
 
 
 func set_value(value: float):
-	_dict.set('value', value)
+	_value = value
 
 
 func get_formulas() -> Dictionary:
@@ -69,7 +70,7 @@ func get_dict() -> Dictionary:
 
 
 func reset() -> void:
-	set_value(_dict.get('init_value'))
+	set_value(_dict.get('init'))
 
 
 ### Formulas ###
