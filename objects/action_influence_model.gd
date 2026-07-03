@@ -30,6 +30,13 @@ func get_actions() -> Array[Action]:
 	return _actions
 
 
+func get_action(action_name) -> Action:
+	for action: Action in _actions:
+		if action.get_name() == action_name:
+			return action
+	return null
+
+
 func get_behavioral_actions() -> Array[Action]:
 	return _behavioral_actions
 
