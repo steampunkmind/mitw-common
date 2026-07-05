@@ -113,9 +113,15 @@ func fill_sensors(sensor_dicts: Array) -> void:
 		_sensors.set(sensor_name, Sensor.new(sensor_name, sensor_min, sensor_max, sensor_init))
 
 
-func new_sensor() -> void:
+func new_sensor() -> Sensor:
 	var name = "Sensor " + str(_sensors.size()+1)
-	_sensors.set(name, Sensor.new(name, 0, 100, 50))
+	var result = Sensor.new(name, 0, 100, 50)
+	_sensors.set(name, result)
+	return result
+
+
+func delete_sensor(sensor: Sensor) -> void:
+	_sensors.erase(sensor.get_name())
 
 
 func reset_sensors():
