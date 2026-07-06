@@ -43,6 +43,9 @@ static func init(aim_model_dict: Dictionary, gam_model_dict: Dictionary) -> void
 	_sensor_formula_types.set(SensorFormulaSelectAction.TYPE, SensorFormulaSelectAction.new())
 	_sensor_formula_types.set(SensorFormulaDelayAction.TYPE, SensorFormulaDelayAction.new())
 	_sensor_formula_types.set(SensorFormulaShuffleAction.TYPE, SensorFormulaShuffleAction.new())
+	_sensor_formula_types.set(SensorFormulaAdd.TYPE, SensorFormulaAdd.new())
+	_sensor_formula_types.set(SensorFormulaSubtract.TYPE, SensorFormulaSubtract.new())
+	_sensor_formula_types.set(SensorFormulaMultiply.TYPE, SensorFormulaMultiply.new())
 	_sensor_formula_types.set(SensorFormulaSet.TYPE, SensorFormulaSet.new())
 
 
