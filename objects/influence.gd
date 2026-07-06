@@ -13,6 +13,10 @@ func get_sensor_name():
 	return _sensor_name
 	
 	
+func set_sensor_name(sensor_name: String) -> void:
+	_sensor_name = sensor_name
+
+
 func get_formula() -> Formula:
 	return _formula
 	

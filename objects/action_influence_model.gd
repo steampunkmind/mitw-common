@@ -85,7 +85,6 @@ func set_sensors(value: Array[Sensor]):
 	_sensors.clear()
 	for sensor: Sensor in value:
 		_sensors.set(sensor.get_name(), sensor)
-	
 
 
 func get_sensor(name: String) -> Sensor:
@@ -118,6 +117,20 @@ func new_sensor() -> Sensor:
 	var result = Sensor.new(name, 0, 100, 50)
 	_sensors.set(name, result)
 	return result
+
+
+func rename_sensor(sensor: Sensor, new_name: String) -> void:
+	var old_name = sensor.get_name()
+	if old_name != new_name:
+		for action: Action in _actions:
+			for influence: Influence in action.get_influences():
+				if influence.get_sensor_name() == old_name:
+					influence.set_sensor_name(new_name)
+					
+		var value = _sensors.get(old_name)
+		_sensors.erase(old_name)
+		_sensors.set(new_name, value)
+		sensor.set_name(new_name)
 
 
 func delete_sensor(sensor: Sensor) -> void:
